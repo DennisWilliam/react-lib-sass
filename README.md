@@ -1,1 +1,1 @@
-# react-lib-sass
+# react-lib-vite-storybook

@@ -1,0 +1,36 @@
+{
+	"compilerOptions": {
+		"sourceMap": true,
+		"target": "es5",
+		"useDefineForClassFields": true,
+		"lib": ["DOM", "DOM.Iterable", "ESNext"],
+		"allowJs": false,
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"module": "ESNext",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"noEmit": true,
+		"jsx": "react-jsx",
+		"baseUrl": "./src",
+		"typeRoots": ["./node_modules/@types/"],
+		"paths": {
+			"@/*": ["./src/*"],
+			"@base/*": ["./components/base-components/*"],
+			"@icons/*": ["./components/icons/*"],
+			"@typography/*": ["./components/base-components/BaseTypography/*"],
+			"@base-functions/*": ["./components/base-functions/*"],
+			"@themes/*": ["./styles/themes/*"],
+			"@story/*": ["./stories/*"],
+			"@modular/*": ["./components/modular/*"]
+			// "@base-styles/*": ["./components/base-styles/*"]
+		}
+	},
+	"include": ["src"],
+	"exclude": ["node_modules", "dist", "public"],
+	"references": [{ "path": "./tsconfig.node.json" }]
+}

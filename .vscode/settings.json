@@ -1,0 +1,22 @@
+{
+	"files.insertFinalNewline": true,
+	"editor.codeLens": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.detectIndentation": true,
+	"editor.insertSpaces": false,
+	"editor.tabSize": 2,
+	"editor.renderWhitespace": "boundary",
+	"editor.wordWrap": "on",
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true,
+		"source.organizeImports": true
+	},
+	"editor.rulers": [80],
+	"typescript.tsdk": "./node_modules/typescript/lib",
+	"git.autofetch": true,
+	"task.autoDetect": "off",
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	"typescript.updateImportsOnFileMove.enabled": "always",
+	"files.eol": "\r\n",
+	"editor.formatOnSave": true
+}
