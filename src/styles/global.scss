@@ -1,0 +1,65 @@
+:root {
+	/*COLORS GLOBAL*/
+	--white: #ffff;
+
+	/*COLORS DARK*/
+	--pallet-purple-lv1: #43496e;
+	--pallet-purple-lv2: #544d7e;
+	--pallet-purple-lv3: #65589c;
+	--pallet-yellow: #ffc12d;
+
+	/*COLORS LIGHT*/
+	--pallet-blue-lv1: #6983aa;
+	--pallet-blue-lv2: #8ec6c5;
+	--pallet-blue-lv3: #f4f4f4;
+
+	/*THEME DEFAULT*/
+	--primary: var(--pallet-blue-lv1);
+	--secondary: var(--pallet-yellow);
+	--background: var(--pallet-blue-lv2);
+	--color: var(--white);
+}
+
+:root.dark {
+	--primary: var(--pallet-blue-lv1);
+	--secondary: var(--pallet-yellow);
+	--background: var(--pallet-blue-lv2);
+	--color: var(--white);
+}
+
+:root.default,
+.light {
+	--primary: var(--pallet-blue-lv1);
+	--secondary: var(--pallet-yellow);
+	--background: var(--pallet-blue-lv3);
+	--color: var(--white);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	box-sizing: border-box;
+	font-size: 12px;
+	-webkit-font-smoothing: antialiased !important;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+
+	::-webkit-scrollbar {
+		width: 5px;
+	}
+
+	::-webkit-scrollbar-track-piece {
+		background-color: var(--background);
+	}
+
+	::-webkit-scrollbar-thumb:vertical {
+		background-color: lightgrey;
+	}
+}
+
+body {
+	background-color: var(--background);
+}

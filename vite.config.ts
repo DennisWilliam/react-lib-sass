@@ -2,6 +2,7 @@ import react from '@vitejs/plugin-react'
 import path from 'path'
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
+import sass from 'vite-plugin-sass'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -38,11 +39,12 @@ export default defineConfig({
 			},
 		},
 	},
-	server: { port: 3000, open: '/' },
+	server: { port: 3000, open: '/base-page-story' },
 	plugins: [
 		react(),
 		dts({
 			insertTypesEntry: true,
 		}),
+		sass(),
 	],
 })

@@ -1,5 +1,4 @@
 import { ThemeContext } from '@themes/contexts'
-import { ThemeContextProps } from '@themes/contexts/types'
 import { useContext } from 'react'
 import {
 	createBrowserRouter,
@@ -8,10 +7,15 @@ import {
 	RouterProvider,
 } from 'react-router-dom'
 
-import Global from './styles/global'
-
 const Page = () => {
-	return <div>teste2</div>
+	const { theme, toggleTheme } = useContext(ThemeContext)
+	return (
+		<div>
+			<button onClick={() => toggleTheme(theme === 'light' ? 'dark' : 'light')}>
+				Toggle Theme
+			</button>
+		</div>
+	)
 }
 
 const router = createBrowserRouter(
@@ -23,10 +27,8 @@ const router = createBrowserRouter(
 )
 
 const App = () => {
-	const { theme } = useContext<ThemeContextProps>(ThemeContext)
 	return (
 		<>
-			<Global theme={theme} />
 			<RouterProvider router={router} />
 		</>
 	)

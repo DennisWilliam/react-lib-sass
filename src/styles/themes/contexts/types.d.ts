@@ -1,9 +1,7 @@
-import { ThemeApp } from '@themes/theme'
-
-export type ThemeProps = 'Commons' | 'Chipcentre' | 'CaSigner' | 'AtmCentre' | 'PayAdmin' | 'Dark'
+export type ThemeProps = 'light' | 'dark'
 
 export type ThemeContextProps = {
-	theme: ThemeApp
+	theme: ThemeProps
 	toggleTheme: (newTheme: ThemeProps) => newTheme
 }
 
