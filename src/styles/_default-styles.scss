@@ -1,0 +1,38 @@
+@mixin hover-primary {
+	&:hover {
+		background-color: var(--hover);
+	}
+}
+
+@mixin on-focus {
+	&:focus {
+		outline: 1px solid var(--focus);
+	}
+}
+
+@mixin on-disable {
+	&:disabled {
+		cursor: not-allowed;
+		background-color: var(--disable-bg);
+		color: var(--disable-text);
+	}
+}
+
+.loading > .spinner {
+	border: 3px solid var(--pallet-white);
+	border-top-color: var(--primary-overlay);
+	border-radius: 50%;
+	aspect-ratio: 1 / 1;
+	width: 20px;
+	margin: auto;
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

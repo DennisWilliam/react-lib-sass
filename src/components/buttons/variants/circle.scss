@@ -1,0 +1,10 @@
+@import '../root/default';
+
+.circle {
+	@include default;
+	@include custom;
+	border-radius: 50%;
+	min-width: 10px;
+	padding: 2px;
+	width: 40px;
+}

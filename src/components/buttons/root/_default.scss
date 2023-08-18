@@ -1,0 +1,35 @@
+@import '../../../styles/default-styles.scss';
+@mixin custom {
+	border: none;
+	border-radius: 3px;
+	background-color: var(--primary);
+	color: var(--text-primary);
+
+	&:active {
+		height: 42px;
+		background-color: var(--primary) !important;
+	}
+
+	@include hover-primary;
+	@include on-focus;
+}
+
+@mixin default {
+	min-width: 100px;
+	width: fit-content;
+	height: 40px;
+	padding: 5px;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	justify-content: center;
+
+	& > * {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+}
+
+.button {
+	@include default;
+}

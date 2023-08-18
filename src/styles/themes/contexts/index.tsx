@@ -7,7 +7,7 @@ export const ThemeContext = createContext<ThemeContextProps>({
 })
 
 const ThemeContextProvider = ({ children }: ThemeContextProviderProps) => {
-	const [theme, setTheme] = useState<ThemeProps>('light')
+	const [theme, setTheme] = useState<ThemeProps>('orange')
 
 	const toggleTheme = useCallback((newTheme: ThemeProps) => {
 		const htmlElement = document.documentElement

@@ -1,0 +1,18 @@
+@import '../root/default';
+
+.dropdown {
+	@include default;
+	@include custom;
+}
+
+.dropdown hr {
+	border: solid 1px var(--secondary);
+	height: 15px;
+	width: 1px;
+}
+
+.toggle {
+	display: flex;
+	justify-content: space-between;
+	width: 20px;
+}

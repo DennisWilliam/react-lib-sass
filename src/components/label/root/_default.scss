@@ -1,0 +1,17 @@
+@mixin custom {
+	color: var(--text);
+	font-weight: bold;
+}
+
+@mixin default {
+	margin-top: 10px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	display: block;
+	//	width: fit-content;
+}
+
+.label {
+	@include default;
+	@include custom;
+}

@@ -1,0 +1,46 @@
+@import '../root/default';
+
+.input-search-container {
+	position: relative;
+	display: inline-block;
+	width: fit-content;
+}
+
+.input-search {
+	@include custom;
+	@include default;
+	width: 250px;
+	position: relative;
+	padding-right: 55px;
+}
+
+/*TODO: melhorar a forma de customizar o botão*/
+.input-search + hr + button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	min-width: 40px;
+	padding: 0;
+	border: none;
+	color: var(--text);
+	background-color: transparent;
+	height: 100%;
+	//border: none;
+}
+
+.input-search + hr + button:hover {
+	color: var(--primary);
+}
+
+.input-search + hr + button:active {
+	color: var(--hover);
+}
+
+.input-search-container hr {
+	position: absolute;
+	top: 8px;
+	right: 40px;
+	border: solid 1px var(--secondary);
+	height: 60%;
+	width: 1px;
+}

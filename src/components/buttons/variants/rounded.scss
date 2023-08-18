@@ -1,0 +1,7 @@
+@import '../root/default';
+
+.rounded {
+	@include default;
+	@include custom;
+	border-radius: 30px;
+}

@@ -1,4 +1,4 @@
-export type ThemeProps = 'light' | 'dark'
+export type ThemeProps = 'light' | 'dark' | 'orange'
 
 export type ThemeContextProps = {
 	theme: ThemeProps

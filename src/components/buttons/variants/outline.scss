@@ -1,0 +1,9 @@
+@import '../root/default';
+
+.outline {
+	@include default;
+	@include custom;
+	background-color: transparent;
+	border: solid 2px var(--primary);
+	color: var(--primary);
+}

@@ -1,0 +1,6 @@
+@import '../root/default';
+
+.fill {
+	@include default;
+	@include custom;
+}

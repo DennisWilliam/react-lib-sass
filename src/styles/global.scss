@@ -1,38 +1,110 @@
 :root {
-	/*COLORS GLOBAL*/
-	--white: #ffff;
+	/*COLORS GLABAL*/
+	--green-alert: #28ab5c;
+	--yellow-alert: #ffa826;
+	--red-alert: #ff4747;
+	--blue-alert: #3372d6;
+
+	--focus: var(--blue-alert);
+	--error: var(--red-alert);
+	--alert: var(--yellow-alert);
+	--info: var(--blue-alert);
+
+	/*COLORS WHITE*/
+	--pallet-white: #ffff;
+	--pallet-white-080: #d1d1d2;
+	--pallet-white-060: #a3a3a4;
+	--pallet-white-040: #747677;
+	--pallet-white-030: #5e5f61;
+	--pallet-white-010: #303133;
+	--pallet-white-008: #2a2c2e;
+	--pallet-white-003: #1f2123;
+
+	--pallet-white-a-080: rgba(255, 255, 255, 0.8);
+	--pallet-white-a-060: rgba(255, 255, 255, 0.6);
+	--pallet-white-a-040: rgba(255, 255, 255, 0.4);
+	--pallet-white-a-030: rgba(255, 255, 255, 0.3);
+	--pallet-white-a-010: rgba(255, 255, 255, 0.1);
+	--pallet-white-a-008: rgba(255, 255, 255, 0.08);
+	--pallet-white-a-003: rgba(255, 255, 255, 0.03);
+
+	/* COLORS GRAY*/
+	--pallet-grey: #424141;
+	--pallet-dark-grey: #181a1c;
+	--pallet-grey-080: #676767;
+	--pallet-grey-060: #8d8d8d;
+	--pallet-grey-040: #b3b3b3;
+	--pallet-grey-030: #c6c5c5;
+	--pallet-grey-010: #ebebeb;
+	--pallet-grey-008: #f0f0f0;
+	--pallet-grey-003: #f9f9f9;
+
+	--pallet-grey-a-080: rgba(65, 65, 65, 0.8);
+	--pallet-grey-a-060: rgba(65, 65, 65, 0.6);
+	--pallet-grey-a-040: rgba(65, 65, 65, 0.4);
+	--pallet-grey-a-030: rgba(65, 65, 65, 0.3);
+	--pallet-grey-a-010: rgba(65, 65, 65, 0.1);
+	--pallet-grey-a-008: rgba(65, 65, 65, 0.08);
+	--pallet-grey-a-003: rgba(65, 65, 65, 0.03);
+
+	/*COLORS ORANGE*/
+	--pallet-orange: #e19637;
+	--pallet-orange-a-007: rgba(225, 150, 55, 0.07);
+	--pallet-orange-a-60: rgba(215, 144, 54, 0.6);
+	--pallet-orange-a-090: rgba(225, 150, 55, 0.9);
+	--pallet-brown: #857968;
 
 	/*COLORS DARK*/
+	--pallet-blue-neon: #08c1dd;
+	--pallet-blue-neon-a-60: rgba(10, 135, 154, 0.6);
+	--pallet-blue-neon-a-10: rgba(8, 193, 221, 0.1);
+
 	--pallet-purple-lv1: #43496e;
 	--pallet-purple-lv2: #544d7e;
 	--pallet-purple-lv3: #65589c;
 	--pallet-yellow: #ffc12d;
+	--pallet-purple-alpha: #305c9f29;
+	--pallet-yellow-alpha: #f4b21382;
 
 	/*COLORS LIGHT*/
 	--pallet-blue-lv1: #6983aa;
 	--pallet-blue-lv2: #8ec6c5;
 	--pallet-blue-lv3: #f4f4f4;
-
-	/*THEME DEFAULT*/
-	--primary: var(--pallet-blue-lv1);
-	--secondary: var(--pallet-yellow);
-	--background: var(--pallet-blue-lv2);
-	--color: var(--white);
 }
 
 :root.dark {
-	--primary: var(--pallet-blue-lv1);
-	--secondary: var(--pallet-yellow);
-	--background: var(--pallet-blue-lv2);
-	--color: var(--white);
+	--primary: var(--pallet-blue-neon);
+	--secondary: var(--pallet-dark-grey);
+	--background: var(--pallet-dark-grey);
+	--text: var(--pallet-white-080);
+	--text-primary: var(--pallet-white);
+	--hover: var(--pallet-blue-neon-a-10);
+	--fill-inputs: var(--pallet-grey-a-060);
+	--disable-bg: var(--pallet-white-008);
+	--disable-text: var(--pallet-white-030);
+	--primary-overlay: var(--pallet-blue-neon-a-60);
+}
+
+:root.orange {
+	--primary: var(--pallet-orange);
+	--secondary: var(--pallet-brown);
+	--background: var(--white);
+	--text: var(--pallet-grey-080);
+	--text-primary: var(--pallet-white);
+	--hover: var(--pallet-yellow-alpha);
+	--fill-inputs: var(--pallet-grey-a-008);
+	--disable-bg: var(--pallet-grey-008);
+	--disable-text: var(--pallet-grey-a-030);
+	--primary-overlay: var(--pallet-orange-a-60);
 }
 
 :root.default,
 .light {
 	--primary: var(--pallet-blue-lv1);
 	--secondary: var(--pallet-yellow);
-	--background: var(--pallet-blue-lv3);
-	--color: var(--white);
+	--background: var(--pallet-purple-lv3);
+	--text: var(--white);
+	--hover: var(--pallet-purple-alpha);
 }
 
 * {
@@ -60,6 +132,21 @@
 	}
 }
 
+#root {
+	height: 100%;
+	width: 100%;
+}
+
+html {
+	height: 100%;
+	width: 100%;
+}
 body {
+	height: 100%;
+	width: 100%;
 	background-color: var(--background);
+}
+
+.hide {
+	display: none;
 }
