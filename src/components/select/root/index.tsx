@@ -1,4 +1,4 @@
-import { ComponentProps, MouseEvent, useState } from 'react'
+import { ComponentProps, KeyboardEvent, MouseEvent, useState } from 'react'
 import './_default.scss'
 
 export type SelectOption = {
@@ -16,31 +16,30 @@ export const SelectRoot: React.FC<SelectRootProps> = ({ options = [], children, 
 	const [isOpen, setIsOpen] = useState(false)
 	const classOptions = isOpen ? 'options' : ['options', 'collapse'].join(' ')
 
-	function handleOnChange(e: React.ChangeEvent<HTMLSelectElement>) {
-		setSelected({
-			label: e.target.selectedOptions[0].label,
-			value: e.target.selectedOptions[0].value,
-		})
-	}
-
 	function handleCLick(e: MouseEvent<HTMLLIElement>) {
 		setSelected({
 			label: e.currentTarget.textContent || '',
 			value: e.currentTarget.dataset.value || '-1',
 		})
 		setIsOpen(false)
-		//console.log(e.currentTarget.dataset.value)
+	}
+
+	function handleKeydown(e: KeyboardEvent<HTMLInputElement>) {
+		if (e.key === 'Enter' || e.key === ' ') {
+			setIsOpen(!isOpen)
+		}
+	}
+
+	function handleKeydownOption(e: KeyboardEvent<HTMLLIElement>) {
+		if (e.key === 'Enter' || e.key === ' ') {
+			e.currentTarget.click()
+		}
 	}
 
 	return (
 		<div className="ancor">
 			<div className="container">
-				<select
-					className="select"
-					{...props}
-					value={selected.value}
-					onChange={(e) => handleOnChange(e)}
-				>
+				<select className="select" {...props} value={selected.value}>
 					{options.map((op) => {
 						return (
 							<option key={op.value} value={op.value}>
@@ -49,27 +48,30 @@ export const SelectRoot: React.FC<SelectRootProps> = ({ options = [], children, 
 						)
 					})}
 				</select>
-				<span className="select" onClick={() => setIsOpen(!isOpen)}>
-					{selected.label}
-				</span>
+				<input
+					className="select"
+					onClick={() => setIsOpen(!isOpen)}
+					value={selected.label}
+					placeholder="Selecione um item"
+					onKeyDown={handleKeydown}
+				/>
+
 				<ul className={classOptions}>
 					{options.map((op) => {
 						return (
-							<li data-value={op.value} key={op.value} className="option" onClick={handleCLick}>
+							<li
+								tabIndex={0}
+								data-value={op.value}
+								key={op.value}
+								className="option"
+								onClick={handleCLick}
+								onKeyDown={handleKeydownOption}
+							>
 								{op.label}
 							</li>
 						)
 					})}
 				</ul>
-				{/*<div className="options">
-				{options.map((op) => {
-					return (
-						<div key={op.value} className="option">
-							{op.label}
-						</div>
-					)
-				})}
-			</div>*/}
 			</div>
 		</div>
 	)

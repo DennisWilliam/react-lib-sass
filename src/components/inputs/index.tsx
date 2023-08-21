@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
+import DatePicker from 'react-datepicker'
 import { Icon } from '../../icons'
 import { Search } from '../../icons/Search'
 import { ButtonRoot } from '../buttons/root'
 import { LabelRoot } from '../label/root'
 import { InputRoot, InputRootProps } from './root'
 
+import 'react-datepicker/dist/react-datepicker.css'
+import './variants/datepicker.scss'
 import './variants/search.scss'
 
 export type InputVariants = 'text' | 'password'
@@ -12,6 +15,10 @@ export type InputVariants = 'text' | 'password'
 export type InputTextProps = {
 	label?: string
 	variants: InputVariants
+} & InputRootProps
+
+export type InputDatepickerProps = {
+	label?: string
 } & InputRootProps
 
 export const InputText: React.FC<InputTextProps> = ({ id, label, ...props }) => {
@@ -45,5 +52,16 @@ export const InputSearch: React.FC<InputSearchProps> = ({
 				</ButtonRoot>
 			</div>
 		</>
+	)
+}
+
+export const InputDatepicker: React.FC<InputDatepickerProps> = ({ className, ...props }) => {
+	const [startDate, setStartDate] = useState(new Date())
+	return (
+		<DatePicker
+			className="datepicker"
+			selected={startDate}
+			onChange={(date: Date) => setStartDate(date)}
+		/>
 	)
 }

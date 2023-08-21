@@ -26,8 +26,7 @@ $inputHeight: 35px;
 	position: absolute;
 
 	select {
-		position: absolute;
-		//display: none;
+		display: none;
 	}
 }
 
@@ -42,6 +41,7 @@ $inputHeight: 35px;
 .select {
 	@include custom;
 	@include default;
+	@include on-focus;
 }
 
 .options {
@@ -64,4 +64,10 @@ $inputHeight: 35px;
 	padding-left: 10px;
 	cursor: pointer;
 	@include hover-secondary;
+	@include on-focus;
+}
+
+.option:focus {
+	background-color: var(--secondary);
+	color: var(--text-primary);
 }

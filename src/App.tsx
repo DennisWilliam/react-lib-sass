@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom'
 import { Button, ButtonDropDown } from './components/buttons'
 import { FieldsetRoot } from './components/fieldset/root'
-import { InputSearch, InputText } from './components/inputs'
+import { InputDatepicker, InputSearch, InputText } from './components/inputs'
 import { Select } from './components/select'
 import { Star } from './icons/Star'
 
@@ -112,12 +112,38 @@ const PageSelect = () => {
 	)
 }
 
+const PageDatepicker = () => {
+	const { theme, toggleTheme } = useContext(ThemeContext)
+	return (
+		<div
+			style={{
+				display: 'flex',
+				flexDirection: 'column',
+				justifyContent: 'space-between',
+				height: '100%',
+			}}
+		>
+			<form action="#" method="post">
+				<FieldsetRoot id="fieldset1" legend="Form 1">
+					<InputDatepicker id="datepicker2" />
+					<InputDatepicker id="datepicker3" />
+				</FieldsetRoot>
+			</form>
+
+			<button onClick={() => toggleTheme(theme === 'orange' ? 'dark' : 'orange')}>
+				Toggle Theme
+			</button>
+		</div>
+	)
+}
+
 const router = createBrowserRouter(
 	createRoutesFromElements(
-		<Route path="/" element={<PageSelect />}>
+		<Route path="/" element={<PageDatepicker />}>
 			<Route index path="/base-page-story" element={<Page />} />
 			<Route index path="/base-input" element={<PageInput />} />
 			<Route index path="/base-select" element={<PageSelect />} />
+			<Route index path="/base-datepicker" element={<PageDatepicker />} />
 		</Route>
 	)
 )
