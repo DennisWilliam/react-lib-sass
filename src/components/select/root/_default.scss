@@ -1,0 +1,67 @@
+@import '../../../styles/default-styles.scss';
+$inputHeight: 35px;
+
+@mixin default {
+	appearance: none;
+	width: 150px;
+	height: $inputHeight;
+	padding: 10px;
+	//display: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+}
+
+@mixin custom {
+	border: none;
+	background-color: var(--fill-inputs);
+	color: var(--text);
+}
+
+.container {
+	background-color: var(--background);
+	border: 1px solid var(--fill-inputs);
+	padding: 5px;
+	display: inline-block;
+	position: absolute;
+
+	select {
+		position: absolute;
+		//display: none;
+	}
+}
+
+.ancor {
+	position: relative;
+	height: $inputHeight;
+	width: 160px;
+	display: inline-block;
+	z-index: 9;
+}
+
+.select {
+	@include custom;
+	@include default;
+}
+
+.options {
+	background-color: var(--background);
+	width: 100%;
+
+	color: var(--text);
+}
+
+.options.collapse {
+	display: none;
+}
+
+.option {
+	width: 100%;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid var(--fill-inputs);
+	padding-left: 10px;
+	cursor: pointer;
+	@include hover-secondary;
+}

@@ -4,6 +4,13 @@
 	}
 }
 
+@mixin hover-secondary {
+	&:hover {
+		background-color: var(--secondary);
+		color: var(--text-primary);
+	}
+}
+
 @mixin on-focus {
 	&:focus {
 		outline: 1px solid var(--focus);
