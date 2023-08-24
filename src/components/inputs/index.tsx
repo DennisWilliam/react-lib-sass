@@ -55,13 +55,21 @@ export const InputSearch: React.FC<InputSearchProps> = ({
 	)
 }
 
-export const InputDatepicker: React.FC<InputDatepickerProps> = ({ className, ...props }) => {
+export const InputDatepicker: React.FC<InputDatepickerProps> = ({
+	id,
+	label,
+	className,
+	...props
+}) => {
 	const [startDate, setStartDate] = useState(new Date())
 	return (
-		<DatePicker
-			className="datepicker"
-			selected={startDate}
-			onChange={(date: Date) => setStartDate(date)}
-		/>
+		<>
+			<LabelRoot htmlFor={id}>{label}</LabelRoot>
+			<DatePicker
+				className="datepicker"
+				selected={startDate}
+				onChange={(date: Date) => setStartDate(date)}
+			/>
+		</>
 	)
 }

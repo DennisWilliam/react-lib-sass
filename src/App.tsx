@@ -11,7 +11,7 @@ import { FieldsetRoot } from './components/fieldset/root'
 import { InputDatepicker, InputSearch, InputText } from './components/inputs'
 import { Select } from './components/select'
 import { Star } from './icons/Star'
-import TemplateDefault, { TemplateLogo } from './templates/default'
+import TemplateDefault from './templates/default'
 
 const op = [
 	{ value: '1', label: 'teste 1' },
@@ -139,22 +139,31 @@ const PageDatepicker = () => {
 }
 
 const PageLayout = () => {
-	return <TemplateDefault id="template"></TemplateDefault>
-}
-
-const PageLayoutLogo = () => {
-	return <TemplateLogo id="template"></TemplateLogo>
+	return (
+		<TemplateDefault id="template">
+			<>
+				<FieldsetRoot id="fieldset1" legend="Form 1">
+					<InputText id="input" variants="text" label="Titulo:" placeholder="Digite aqui" />
+					<InputSearch id="search" label="Procurar:" placeholder="Digite aqui" />
+					<Select id="select" variants="search" options={op} label="Selecione:" />
+					<InputDatepicker id="datepicker2" label="Data:" />
+				</FieldsetRoot>
+				<Button id="btn-fill" variant="fill">
+					fill
+				</Button>
+			</>
+		</TemplateDefault>
+	)
 }
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
-		<Route path="/" element={<PageLayoutLogo />}>
+		<Route path="/" element={<PageLayout />}>
 			<Route index path="/base-page-story" element={<Page />} />
 			<Route index path="/base-input" element={<PageInput />} />
 			<Route index path="/base-select" element={<PageSelect />} />
 			<Route index path="/base-datepicker" element={<PageDatepicker />} />
 			<Route index path="/base-template" element={<PageLayout />} />
-			<Route index path="/base-template2" element={<PageLayoutLogo />} />
 		</Route>
 	)
 )

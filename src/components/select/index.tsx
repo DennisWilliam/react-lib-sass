@@ -1,3 +1,4 @@
+import { LabelRoot } from '../label/root'
 import { SelectRoot, SelectRootProps } from './root'
 import './variants/standard.scss'
 
@@ -10,8 +11,11 @@ export type SelectProps = {
 
 export const Select: React.FC<SelectProps> = ({ id, label, children, ...props }) => {
 	return (
-		<SelectRoot id={id} {...props}>
-			{children}
-		</SelectRoot>
+		<>
+			<LabelRoot htmlFor={id}>{label}</LabelRoot>
+			<SelectRoot id={id} {...props}>
+				{children}
+			</SelectRoot>
+		</>
 	)
 }

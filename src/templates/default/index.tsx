@@ -1,25 +1,27 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import './variants/_default.scss'
+import './variants/commons.scss'
 import './variants/layout.scss'
 import './variants/layout2.scss'
 import './variants/layout3.scss'
 
 export type TemplateDefaultProps = {
 	id: string
+	children: React.ReactElement
 }
 
-const TemplateDefault: React.FC<TemplateDefaultProps> = ({ id }) => {
+const TemplateDefault: React.FC<TemplateDefaultProps> = ({ id, children }) => {
 	useEffect(() => {
 		const root = document.getElementById('root')
-		root?.classList.add('layout2')
+		root?.classList.add('commons')
 	}, [])
 
 	const classNames = 'template-item'
 	return (
 		<>
 			<header className={classNames}>Header</header>
+			<main className={classNames}>{children}</main>
 			<nav className={classNames}>Nav</nav>
-			<main className={classNames}>Main</main>
 			<aside className={classNames}>Aside</aside>
 			<footer className={classNames}>Footer</footer>
 		</>

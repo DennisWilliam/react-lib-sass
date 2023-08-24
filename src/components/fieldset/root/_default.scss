@@ -5,4 +5,7 @@
 	@include default;
 	padding: 10px;
 	margin: 10px;
+	display: flex;
+	flex-direction: column;
+	height: fit-content;
 }

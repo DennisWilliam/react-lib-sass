@@ -1,0 +1,47 @@
+$headerWidth: 100px;
+$footerWidth: 100px;
+$margin: 330px;
+
+.commons {
+	display: flex;
+
+	& > header {
+		height: 100px;
+		margin: 0;
+		background-color: var(--primary);
+	}
+	& > nav {
+		flex: 1 1 30vh;
+		height: 100%;
+		background-color: var(--background);
+		border: solid 1px var(--disable-text);
+	}
+
+	& > aside {
+		display: none;
+		flex: 1 1 200px;
+		background-color: yellow;
+	}
+
+	& > main {
+		flex: 20 1 500px;
+		background-color: var(--background);
+		/* 100% da altura vertical - a soma da altura do header + footer + margin deles*/
+		height: 100%;
+	}
+	footer {
+		height: 100px;
+		border-top: solid 1px var(--disable-text);
+		background-color: var(--background);
+	}
+
+	@media only screen and (max-width: 923px) {
+		main {
+			height: calc(100vh - 436px);
+		}
+		aside {
+			flex: 1 1 100vw;
+			height: 100px;
+		}
+	}
+}
