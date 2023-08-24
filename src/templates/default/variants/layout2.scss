@@ -1,0 +1,41 @@
+$headerWidth: 100px;
+$footerWidth: 100px;
+$margin: 330px;
+
+.layout2 {
+	display: flex;
+
+	& > header {
+		height: 100px;
+	}
+	& > nav {
+		flex: 1 1 100vh;
+		height: 100px;
+		background-color: blue;
+	}
+
+	& > aside {
+		flex: 1 1 200px;
+		background-color: yellow;
+	}
+
+	& > main {
+		flex: 20 1 500px;
+		background-color: green;
+		/* 100% da altura vertical - a soma da altura do header + footer + margin deles*/
+		height: calc(100vh - $margin);
+	}
+	footer {
+		height: 100px;
+	}
+
+	@media only screen and (max-width: 923px) {
+		main {
+			height: calc(100vh - 436px);
+		}
+		aside {
+			flex: 1 1 100vw;
+			height: 100px;
+		}
+	}
+}
