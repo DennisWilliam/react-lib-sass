@@ -39,7 +39,7 @@ export default defineConfig({
 			},
 		},
 	},
-	server: { port: 3000, open: '/base-page-story' },
+	server: { port: 3000, open: '/' },
 	plugins: [
 		react(),
 		dts({

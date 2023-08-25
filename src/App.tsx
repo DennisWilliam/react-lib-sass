@@ -5,13 +5,15 @@ import { useForm } from 'react-hook-form'
 import {
 	createBrowserRouter,
 	createRoutesFromElements,
+	Link,
+	Outlet,
 	Route,
-	RouterProvider,
 } from 'react-router-dom'
 import { z, ZodType } from 'zod'
 import { Button, ButtonDropDown } from './components/buttons'
 import { FieldsetRoot } from './components/fieldset/root'
 import { InputDatepicker, InputSearch, InputText } from './components/inputs'
+import { NavRoot } from './components/nav/root'
 import { Select } from './components/select'
 import { Star } from './icons/Star'
 import TemplateDefault from './templates/default'
@@ -212,7 +214,17 @@ const router = createBrowserRouter(
 const App = () => {
 	return (
 		<>
-			<RouterProvider router={router} />
+			<header>
+				header
+				<NavRoot>
+					<Link to={'/home'}>Home</Link>
+					<Link to={'/login'}>Login</Link>
+				</NavRoot>
+			</header>
+			<main>
+				<Outlet />
+			</main>
+			<footer>footer</footer>
 		</>
 	)
 }
