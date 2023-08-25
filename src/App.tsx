@@ -1,11 +1,14 @@
+import { zodResolver } from '@hookform/resolvers/zod'
 import { ThemeContext } from '@themes/contexts'
 import { useContext } from 'react'
+import { useForm } from 'react-hook-form'
 import {
 	createBrowserRouter,
 	createRoutesFromElements,
 	Route,
 	RouterProvider,
 } from 'react-router-dom'
+import { z, ZodType } from 'zod'
 import { Button, ButtonDropDown } from './components/buttons'
 import { FieldsetRoot } from './components/fieldset/root'
 import { InputDatepicker, InputSearch, InputText } from './components/inputs'
@@ -139,11 +142,49 @@ const PageDatepicker = () => {
 }
 
 const PageLayout = () => {
+	type FormType = {
+		name: string
+		lastName: string
+		email: string
+		select: number
+		date: Date
+	}
+
+	const formSchema: ZodType<FormType> = z
+		.object({
+			name: z.string().min(2).max(30),
+			lastName: z.string(),
+			email: z.string(),
+			select: z.number(),
+			date: z.date(),
+		})
+		.refine((objeto) => objeto.name === objeto.lastName, {
+			message: 'Informação incorreta',
+			path: ['name'],
+		})
+
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm<FormType>({ resolver: zodResolver(formSchema) })
+
+	const submit = (data: FormType) => {
+		console.log(data)
+	}
+
 	return (
 		<TemplateDefault id="template">
-			<>
+			<form onSubmit={handleSubmit(submit)}>
 				<FieldsetRoot id="fieldset1" legend="Form 1">
-					<InputText id="input" variants="text" label="Titulo:" placeholder="Digite aqui" />
+					<InputText
+						id="input"
+						variants="text"
+						label="Nome:"
+						placeholder="Digite aqui"
+						{...register('name')}
+					/>
+					{errors.name && <span>Error</span>}
 					<InputSearch id="search" label="Procurar:" placeholder="Digite aqui" />
 					<Select id="select" variants="search" options={op} label="Selecione:" />
 					<InputDatepicker id="datepicker2" label="Data:" />
@@ -151,7 +192,7 @@ const PageLayout = () => {
 				<Button id="btn-fill" variant="fill">
 					fill
 				</Button>
-			</>
+			</form>
 		</TemplateDefault>
 	)
 }
