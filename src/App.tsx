@@ -2,8 +2,8 @@
 import { ThemeContext } from '@themes/contexts'
 import { useContext } from 'react'
 import { useForm } from 'react-hook-form'*/
-import { Link, Outlet } from 'react-router-dom'
-import { NavRoot } from './components/nav/root'
+import { Outlet } from 'react-router'
+import { TemplateDefault, TemplateLogin } from 'templates/default'
 /*import { z, ZodType } from 'zod'
 import { Button, ButtonDropDown } from './components/buttons'
 import { FieldsetRoot } from './components/fieldset/root'
@@ -194,22 +194,24 @@ const PageLayout = () => {
 	)
 }
 */
-const App = () => {
+const Layout = () => {
 	return (
 		<>
-			<header>
-				header
-				<NavRoot>
-					<Link to={'/home'}>Home</Link>
-					<Link to={'/login'}>Login</Link>
-				</NavRoot>
-			</header>
-			<main>
-				<Outlet />
-			</main>
-			<footer>footer</footer>
+			<TemplateLogin id="template">
+				<div>Template Login</div>
+			</TemplateLogin>
 		</>
 	)
 }
 
-export default App
+const LayoutLogin = () => {
+	return (
+		<>
+			<TemplateDefault id="template">
+				<Outlet />
+			</TemplateDefault>
+		</>
+	)
+}
+
+export { Layout, LayoutLogin }

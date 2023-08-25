@@ -1,11 +1,11 @@
 import { Navigate } from 'react-router-dom'
-import App from '../App'
+import { Layout } from '../App'
 import Home from '../pages/home'
 import { UserRoutes } from '../pages/users'
 
 export default function PrivateRoutes() {
 	return {
-		element: <App />,
+		element: <Layout />,
 		children: [
 			UserRoutes,
 			{

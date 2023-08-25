@@ -18,7 +18,8 @@ type AuthUser = {
 const useAuth = (): AuthUser => {
 	const [user, setUser] = useState<User | undefined>(undefined)
 	const [token, setToken] = useState<string | undefined>(undefined)
-	const isAuthenticated = !!user
+	//const isAuthenticated = !!user
+	const isAuthenticated = true
 
 	const login = () => {
 		//TODO: Implementar funcionalidade de login

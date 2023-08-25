@@ -4,6 +4,7 @@ import './variants/commons.scss'
 import './variants/layout.scss'
 import './variants/layout2.scss'
 import './variants/layout3.scss'
+import './variants/login.scss'
 
 export type TemplateDefaultProps = {
 	id: string
@@ -28,7 +29,23 @@ const TemplateDefault: React.FC<TemplateDefaultProps> = ({ id, children }) => {
 	)
 }
 
-export const TemplateLogo: React.FC<TemplateDefaultProps> = ({ id }) => {
+const TemplateLogin: React.FC<TemplateDefaultProps> = ({ id, children }) => {
+	useEffect(() => {
+		const root = document.getElementById('root')
+		root?.classList.add('login-layout')
+	}, [])
+
+	const classNames = 'template-item'
+	return (
+		<>
+			<header className={classNames}>Header</header>
+			<main className={classNames}>{children}</main>
+			<footer className={classNames}>Footer</footer>
+		</>
+	)
+}
+
+const TemplateLogo: React.FC<TemplateDefaultProps> = ({ id }) => {
 	useEffect(() => {
 		const root = document.getElementById('root')
 		root?.classList.add('layout-logo')
@@ -61,4 +78,4 @@ export const TemplateLogo: React.FC<TemplateDefaultProps> = ({ id }) => {
 	)
 }
 
-export default TemplateDefault
+export { TemplateDefault, TemplateLogin, TemplateLogo }
