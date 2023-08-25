@@ -1,8 +1,7 @@
-import { createBrowserRouter } from 'react-router-dom'
-import App from '../App'
-import Home from '../pages/home'
-import Login from '../pages/login'
-import { UserRoutes } from '../pages/users'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import useAuth from '../hooks/useAuth'
+import PrivateRoutes from './private'
+import PublicRoutes from './public'
 
 /*
 export const routers = createBrowserRouter([
@@ -16,7 +15,7 @@ export const routers = createBrowserRouter([
 	},
 ])
 */
-
+/*
 export const routers = createBrowserRouter([
 	{
 		path: '/',
@@ -35,3 +34,14 @@ export const routers = createBrowserRouter([
 		element: <Login />,
 	},
 ])
+
+*/
+
+export const CustomRouterProvider = () => {
+	const { isAuthenticated } = useAuth()
+	const routers = createBrowserRouter([isAuthenticated ? PrivateRoutes() : {}, ...PublicRoutes()])
+
+	return <RouterProvider router={routers} />
+}
+
+//export const routers = createBrowserRouter([true ? PrivateRoutes() : {}, ...PublicRoutes()])

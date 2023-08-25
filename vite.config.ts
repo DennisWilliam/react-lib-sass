@@ -2,7 +2,10 @@ import react from '@vitejs/plugin-react'
 import path from 'path'
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
+import EnvironmentPLugin from 'vite-plugin-environment'
 import sass from 'vite-plugin-sass'
+import svgrPlugin from 'vite-plugin-svgr'
+import viteTsconfigPaths from 'vite-tsconfig-paths'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -41,6 +44,9 @@ export default defineConfig({
 	},
 	server: { port: 3000, open: '/' },
 	plugins: [
+		viteTsconfigPaths(),
+		EnvironmentPLugin('all', { prefix: 'REACT_APP' }),
+		svgrPlugin(),
 		react(),
 		dts({
 			insertTypesEntry: true,
