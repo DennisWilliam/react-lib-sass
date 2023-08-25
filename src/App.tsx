@@ -1,23 +1,18 @@
-import { zodResolver } from '@hookform/resolvers/zod'
+/*import { zodResolver } from '@hookform/resolvers/zod'
 import { ThemeContext } from '@themes/contexts'
 import { useContext } from 'react'
-import { useForm } from 'react-hook-form'
-import {
-	createBrowserRouter,
-	createRoutesFromElements,
-	Link,
-	Outlet,
-	Route,
-} from 'react-router-dom'
-import { z, ZodType } from 'zod'
+import { useForm } from 'react-hook-form'*/
+import { Link, Outlet } from 'react-router-dom'
+import { NavRoot } from './components/nav/root'
+/*import { z, ZodType } from 'zod'
 import { Button, ButtonDropDown } from './components/buttons'
 import { FieldsetRoot } from './components/fieldset/root'
 import { InputDatepicker, InputSearch, InputText } from './components/inputs'
-import { NavRoot } from './components/nav/root'
 import { Select } from './components/select'
 import { Star } from './icons/Star'
 import TemplateDefault from './templates/default'
-
+*/
+/*
 const op = [
 	{ value: '1', label: 'teste 1' },
 	{ value: '2', label: 'teste 2' },
@@ -198,19 +193,7 @@ const PageLayout = () => {
 		</TemplateDefault>
 	)
 }
-
-const router = createBrowserRouter(
-	createRoutesFromElements(
-		<Route path="/" element={<PageLayout />}>
-			<Route index path="/base-page-story" element={<Page />} />
-			<Route index path="/base-input" element={<PageInput />} />
-			<Route index path="/base-select" element={<PageSelect />} />
-			<Route index path="/base-datepicker" element={<PageDatepicker />} />
-			<Route index path="/base-template" element={<PageLayout />} />
-		</Route>
-	)
-)
-
+*/
 const App = () => {
 	return (
 		<>
