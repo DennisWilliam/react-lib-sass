@@ -197,9 +197,9 @@ const PageLayout = () => {
 const Layout = () => {
 	return (
 		<>
-			<TemplateLogin id="template">
-				<div>Template Login</div>
-			</TemplateLogin>
+			<TemplateDefault id="template">
+				<div>Template default</div>
+			</TemplateDefault>
 		</>
 	)
 }
@@ -207,9 +207,9 @@ const Layout = () => {
 const LayoutLogin = () => {
 	return (
 		<>
-			<TemplateDefault id="template">
+			<TemplateLogin id="template">
 				<Outlet />
-			</TemplateDefault>
+			</TemplateLogin>
 		</>
 	)
 }

@@ -3,6 +3,10 @@ $footerWidth: 100px;
 $margin: 330px;
 
 .login-layout {
+	#root {
+		margin: 0;
+	}
+
 	display: flex;
 
 	& > header {
@@ -10,16 +14,17 @@ $margin: 330px;
 	}
 
 	& > main {
-		flex: 20 1 500px;
-		background-color: green;
 		/* 100% da altura vertical - a soma da altura do header + footer + margin deles*/
-		height: calc(100vh - $margin);
+		height: 75%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 
 	footer {
-		height: 100px;
+		height: 10%;
 	}
-
+	/*
 	@media only screen and (max-width: 923px) {
 		main {
 			height: calc(100vh - 436px);
@@ -29,4 +34,5 @@ $margin: 330px;
 			height: 100px;
 		}
 	}
+	*/
 }
