@@ -1,8 +1,16 @@
 import useAuth from 'hooks/useAuth'
-import { Navigate } from 'react-router'
+import { useNavigate } from 'react-router-dom'
 import './style.scss'
+
 const Login = () => {
-	const { login } = useAuth()
+	const { login, isAuthenticated } = useAuth()
+	const navigate = useNavigate()
+
+	function doLogin() {
+		login().then(() => {
+			if (isAuthenticated) navigate('/home')
+		})
+	}
 
 	return (
 		<div className="login-box">
@@ -15,13 +23,7 @@ const Login = () => {
 					<label htmlFor="token">Token:</label>
 					<input id="token" type="password" />
 				</fieldset>
-				<button
-					type="button"
-					onClick={() => {
-						login()
-						Navigate({ to: '/home' })
-					}}
-				>
+				<button type="button" onClick={doLogin}>
 					Login
 				</button>
 			</form>
