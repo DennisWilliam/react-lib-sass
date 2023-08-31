@@ -1,5 +1,11 @@
+@import '../../../styles/default-styles';
+
 @mixin default {
-	background: red;
+	background: var(--background);
+	@include border;
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: row;
 }
 
 .nav {

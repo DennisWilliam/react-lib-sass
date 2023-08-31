@@ -43,3 +43,7 @@
 		transform: rotate(360deg);
 	}
 }
+
+@mixin border {
+	border: solid 1px var(--border);
+}

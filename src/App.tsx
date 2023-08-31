@@ -198,7 +198,7 @@ const Layout = () => {
 	return (
 		<>
 			<TemplateDefault id="template">
-				<div>Template default</div>
+				<Outlet />
 			</TemplateDefault>
 		</>
 	)

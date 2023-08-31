@@ -1,3 +1,4 @@
+import { Menus } from 'components/menu'
 import React, { useEffect } from 'react'
 import './variants/_default.scss'
 import './variants/commons.scss'
@@ -20,10 +21,17 @@ const TemplateDefault: React.FC<TemplateDefaultProps> = ({ id, children }) => {
 	const classNames = 'template-item'
 	return (
 		<>
-			<header className={classNames}>Header</header>
+			<header className={classNames}>
+				<a href="#" id="logo">
+					Logo
+				</a>
+				<Menus />
+			</header>
 			<main className={classNames}>{children}</main>
-			<nav className={classNames}>Nav</nav>
-			<aside className={classNames}>Aside</aside>
+
+			<aside className={classNames}>
+				<button id="close-menu">X</button>
+			</aside>
 			<footer className={classNames}>Footer</footer>
 		</>
 	)

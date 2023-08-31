@@ -83,6 +83,7 @@
 	--disable-bg: var(--pallet-white-008);
 	--disable-text: var(--pallet-white-030);
 	--primary-overlay: var(--pallet-blue-neon-a-60);
+	--border: var(--pallet-grey-a-010);
 }
 
 :root.orange {
@@ -96,6 +97,7 @@
 	--disable-bg: var(--pallet-grey-008);
 	--disable-text: var(--pallet-grey-a-030);
 	--primary-overlay: var(--pallet-orange-a-60);
+	--border: var(--pallet-grey-a-010);
 }
 
 :root.default,
